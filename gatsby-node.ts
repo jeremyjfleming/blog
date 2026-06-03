@@ -1,6 +1,14 @@
 import type { GatsbyNode } from "gatsby"
 import path from "path"
 
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
+  actions.createTypes(`
+    type MdxFrontmatter {
+      draft: Boolean
+    }
+  `)
+}
+
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions,
