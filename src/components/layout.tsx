@@ -11,7 +11,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
         I blog about tech, theology, politics, and anything else that catches my attention. Hope you find something interesting! 
       </p>
     </header>
-    <nav className="max-w-[680px] mx-auto mt-5 font-mono text-[0.85rem]">
+    <nav className="max-w-[750px] mx-auto mt-5 font-mono text-[0.85rem]">
       <Link
         to="/"
         className="mr-6 no-underline text-[#666] hover:text-[#1a1a1a] hover:opacity-100"
@@ -19,10 +19,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
         All Posts
       </Link>
     </nav>
-    <main className="max-w-[680px] mx-auto">
+    <main className="max-w-[750px] mx-auto">
       {children}
     </main>
-    <footer className="max-w-[680px] mx-auto mt-20 mb-12 pt-8 border-t border-[#ddd] font-mono text-[0.75rem] text-[#666] flex justify-between">
+    <footer className="max-w-[750px] mx-auto mt-20 mb-12 pt-8 border-t border-[#ddd] font-mono text-[0.75rem] text-[#666] flex justify-between">
       <span>Jeremy Fleming</span>
       <span>jeremyflem.ing</span>
     </footer>
