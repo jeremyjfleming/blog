@@ -9,11 +9,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const { createPage } = actions
   const postTemplate = path.resolve("./src/templates/post.tsx")
 
+  const isProd = process.env.NODE_ENV === "production"
+
   const result = await graphql<{
     allMdx: {
       nodes: Array<{
         id: string
-        frontmatter: { slug: string }
+        frontmatter: { slug: string; draft: boolean | null }
         internal: { contentFilePath: string }
       }>
     }
@@ -24,6 +26,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           id
           frontmatter {
             slug
+            draft
           }
           internal {
             contentFilePath
@@ -38,7 +41,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
     return
   }
 
-  result.data!.allMdx.nodes.forEach(node => {
+  result.data!.allMdx.nodes
+    .filter(node => !(isProd && node.frontmatter.draft))
+    .forEach(node => {
     createPage({
       path: `/blog/${node.frontmatter.slug}`,
       component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,

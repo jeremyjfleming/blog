@@ -59,7 +59,10 @@ const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
 export const query = graphql`
   query IndexQuery {
-    allMdx(sort: { frontmatter: { date: DESC } }) {
+    allMdx(
+      sort: { frontmatter: { date: DESC } }
+      filter: { frontmatter: { draft: { ne: true } } }
+    ) {
       nodes {
         id
         excerpt
