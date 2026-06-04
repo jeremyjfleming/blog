@@ -16,5 +16,4 @@ collections:
       - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { label: Slug, name: slug, widget: string, hint: "URL-friendly version of the title, e.g. my-first-post" }
       - { label: Description, name: description, widget: string, required: false, hint: "Short summary shown on the post listing" }
-      - { label: Draft, name: draft, widget: boolean, default: true, required: false }
       - { label: Body, name: body, widget: markdown }

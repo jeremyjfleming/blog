@@ -1,7 +1,6 @@
 node_modules/
+.next/
 .cache/
-public
-src/gatsby-types.d.ts
 
 # Local Netlify folder
 .netlify
