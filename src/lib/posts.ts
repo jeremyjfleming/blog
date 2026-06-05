@@ -20,7 +20,7 @@ export async function getPostList(): Promise<PostMeta[]> {
 export async function getPostContent(
   slug: string
 ): Promise<{ content: string; meta: PostMeta } | null> {
-  const res = await fetch(`${BASE_URL}/${slug}.md`, {
+  const res = await fetch(`${BASE_URL}/posts/${slug}.md`, {
     next: { revalidate: 60 },
   })
   if (!res.ok) return null
@@ -31,7 +31,7 @@ export async function getPostContent(
     meta: {
       slug,
       title: data.title ?? slug,
-      date: data.date ?? "",
+      date: data.date instanceof Date ? data.date.toISOString().slice(0, 10) : (data.date ?? ""),
       description: data.description,
     },
   }

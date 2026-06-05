@@ -21,7 +21,7 @@ export default async function HomePage() {
             >
               <div>
                 <Link
-                  href={`/blog/${post.slug}`}
+                  href={`/${post.slug}`}
                   className="font-bold text-base no-underline"
                 >
                   {post.title}
