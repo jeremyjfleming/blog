@@ -10,5 +10,5 @@
 
 [[redirects]]
   from = "/"
-  to = "/blog"
+  to = "/p"
   status = 301
